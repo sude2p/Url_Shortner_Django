@@ -30,7 +30,8 @@
         {%if shorturl %}
         <div class="mb-3">
             <label for="formGroupExampleInput2" class="form-label">Shortened URL:</label>
-            <a href="{{ shorturl }}"><input type="text" class="form-control" id="formGroupExampleInput2" placeholder="" value="{{ shorturl }}" ></a>
+            <!-- <a href="{{ shorturl }}"><input type="text" class="form-control" id="formGroupExampleInput2" placeholder="" value="{{ shorturl }}" ></a> -->
+            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="" value="{{ shorturl }}" >
             <!-- <a href="{{ new_url }}" class="form-control" id="formGroupExampleInput2" target="_blank">{{ new_url }}</a> -->
         </div>
         {%endif%}
