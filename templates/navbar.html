@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        /* CSS for Navbar */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+        .container-nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: spac-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 150px;
+        }
+        .nav-links li a {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px;
+           
+        }
+        .nav-links li a:hover {
+            background-color: #b59191;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    {% if request.user.is_authenticated %}
+    <nav>
+        <div class="container-nav">
+            
+            <ul class="nav-links">
+                <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                <li><a href="{% url 'url' %}">Url Shorten</a></li>
+                <li><a href="{% url 'logout'%}">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    {% endif %}
+   
+</body>
+</html>

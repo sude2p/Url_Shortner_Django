@@ -1,0 +1,50 @@
+{% extends 'main.html'%}
+
+
+{% block content%}
+
+
+
+<body>
+    
+        <div class="centered-form">
+            <div class="card">
+              <h1>New User Registration Form</h1>
+              
+    
+              <hr>
+          
+        
+            <form action="{%url 'register'%}" class="form auth__form" method="post" enctype="multipart/form-data">
+                {%csrf_token%}
+                
+                {%for item in form %}
+    
+              
+              <div class="form__field">
+                <label>{{item.label}}</label> 
+                
+                {{item}}
+                <br>
+                <br>
+                
+                {%for error in item.errors %}
+                <p style="color: red;">{{error}}</p>
+                {%endfor%}
+              
+              </div>
+                {%endfor%}
+             
+              
+              <div >
+                <input  type="submit" value="Register" class="register-button" >
+                <a href="{%url 'login'%}"><input type="button" value="Cancel" class="delete-button"></a>
+
+              </div>
+            </form>
+          </div> 
+        </div> 
+
+
+</body>
+{%endblock content%}

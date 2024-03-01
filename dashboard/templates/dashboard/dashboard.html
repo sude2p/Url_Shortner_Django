@@ -1,0 +1,40 @@
+{% extends 'main.html'%}
+
+{% block content%}
+
+<div class="bordered-content">     
+    <style>
+    .center-text {
+        text-align: center;
+    }
+    </style>
+   
+  
+    <table class="table table-dark table-striped-columns ">
+      <thead>
+        <tr>
+          <!-- <th scope="col">#</th> -->
+          <th class="center-text" scope="col">Long Urls</th>
+          <th class="center-text"scope="col">Short Urls</th>
+          <th class="center-text"scope="col">Edit</th>
+          
+  
+        </tr>
+      </thead>
+      <tbody>
+
+        {% for item in dashboard %}
+      <tr>
+        
+        
+               
+                <td class="center-text"><a href="{{ item.url }}" target="_blank">{{ item.url }}</a></td>
+                <td class="center-text"><a href="{% url 'redirecturl' item.short_url %}" target="">{{ item.short_url }}</a></td>  
+                
+                <td class="center-text"><button type="button" class="btn btn-danger"><a href="{% url 'url-delete' pk=item.url_id %}">Delete</button></td></a>       
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div> 
+{%endblock content%}

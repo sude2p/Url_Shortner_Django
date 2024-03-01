@@ -1,0 +1,40 @@
+
+{% extends 'main.html'%}
+
+{% block content%}
+
+
+<body>
+    <div >
+        <br>
+        <br>
+        <h2>Welcome {{user}}!</h2>
+    </div>
+    
+    <div class="container-left">
+        <form method="POST" >
+            {%csrf_token %}
+            
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Paste URL to be shortened:</label>
+                <!-- <div class="input-group"> -->
+                    <input type="text" name="link" class="form-control" id="formGroupExampleInput" placeholder="Enter url here">
+                    <input type="submit" class="register-button" value="Short URL">
+                <!-- </div> -->
+            </div>
+       
+           
+            
+            
+        </form>
+        {%if shorturl %}
+        <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">Shortened URL:</label>
+            <a href="{{ shorturl }}"><input type="text" class="form-control" id="formGroupExampleInput2" placeholder="" value="{{ shorturl }}" ></a>
+            <!-- <a href="{{ new_url }}" class="form-control" id="formGroupExampleInput2" target="_blank">{{ new_url }}</a> -->
+        </div>
+        {%endif%}
+    </div>
+</body>
+
+{% endblock content%}
